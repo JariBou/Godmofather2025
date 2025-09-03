@@ -1,48 +1,32 @@
 ﻿using System.Collections;
-using NaughtyAttributes;
+using _project.Scripts.Enigmas.PhEnigma.Interfaces;
 using UnityEngine;
 
 namespace _project.Scripts.Enigmas.PhEnigma
 {
     public class PhDetector : MonoBehaviour
     {
-        [SerializeField]
-        private Vector3 _targetPosition;
-        private Vector3 _startPosition;
-
         [SerializeField] 
         private float _completionTime = 2f;
-
-        [SerializeField, Foldout("Display debug")] 
-        private bool _showTargetDisplay;
-        [SerializeField, Foldout("Display debug")]
-        private GameObject _targetDisplay;
+        private IPhDetectorSpawner _phDetectorSpawner;
 
 
-        private void Awake()
+        public void Config(IPhDetectorSpawner detectorSpawner)
         {
-            _startPosition = transform.position;
-            Destroy(_targetDisplay);
+            _phDetectorSpawner = detectorSpawner;
         }
 
-        private void OnMouseDown()
-        {
-            transform.position = _targetPosition;
-            StartCoroutine(GoBack());
-        }
-
-        private IEnumerator GoBack()
+        private IEnumerator DoPhDetection()
         {
             yield return new WaitForSeconds(_completionTime);
-            transform.position = _startPosition;
+            transform.position = _phDetectorSpawner.GetOverPosition();
+            transform.rotation = Quaternion.Euler(_phDetectorSpawner.GetOverRotation());
+            _phDetectorSpawner.Release();
         }
 
-        #if UNITY_EDITOR
-        private void OnValidate()
+        public void Debut()
         {
-            _targetDisplay.gameObject.SetActive(_showTargetDisplay);
-            _targetDisplay.transform.position = _targetPosition;
+            StartCoroutine(DoPhDetection());
         }
-        #endif
     }
 }

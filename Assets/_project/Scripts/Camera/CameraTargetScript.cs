@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.InputSystem;
 
 namespace _project.Scripts.Camera
 {
@@ -62,21 +61,6 @@ namespace _project.Scripts.Camera
                 _internalTimer += Time.deltaTime * _speed;
             }
             transform.position = Vector3.Lerp(_startPosition, TargetPositionV3, _moveCurve.Evaluate(_internalTimer));
-
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                if (_internalTimer >= (((TargetIndex + 1) % _targets.Count == 0) ? .7f : .2f))
-                {
-                    GotoNextTarget();
-                }
-            } else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                if (_internalTimer >= (((TargetIndex - 1) < 0) ? .7f : .2f))
-                {
-                    GotoPreviousTarget();
-                }                
-            }
-        
         }
 
         public void SetTargetPosition(Vector2 targetPosition)
@@ -108,6 +92,34 @@ namespace _project.Scripts.Camera
                 return;
             }
             --TargetIndex;
+        }
+
+        private void OnEnable()
+        {
+            InputManager.LeftArrowPressed += OnLeftArrowPressed;
+            InputManager.RightArrowPressed += OnRightArrowPressed;
+        }
+        
+        private void OnDisable()
+        {
+            InputManager.LeftArrowPressed += OnLeftArrowPressed;
+            InputManager.RightArrowPressed += OnRightArrowPressed;
+        }
+
+        private void OnLeftArrowPressed(InputAction.CallbackContext context)
+        {
+            if (context.performed && _internalTimer >= (((TargetIndex - 1) < 0) ? .7f : .2f))
+            {
+                GotoPreviousTarget();
+            }
+        }
+        
+        private void OnRightArrowPressed(InputAction.CallbackContext context)
+        {
+            if (context.performed && _internalTimer >= (((TargetIndex + 1) % _targets.Count == 0) ? .7f : .2f))
+            {
+                GotoNextTarget();
+            }
         }
     }
 }
