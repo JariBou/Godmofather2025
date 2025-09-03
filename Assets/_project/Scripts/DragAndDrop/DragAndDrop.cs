@@ -4,7 +4,7 @@ using UnityEngine;
 class DragTransform : MonoBehaviour
 {
    
-    private bool dragging = false;
+    public bool dragging = false;
     private float distance;
 
     
