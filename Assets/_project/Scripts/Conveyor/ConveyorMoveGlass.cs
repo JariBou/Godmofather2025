@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ConveyorMoveGlass : MonoBehaviour
 {
-    [SerializeField] private Collider2D _conveyorCollider;
     [SerializeField] private float _conveyorSpeed;
     [SerializeField] private float _glassPositionY;
 
