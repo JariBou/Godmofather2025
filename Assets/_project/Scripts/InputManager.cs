@@ -7,6 +7,7 @@ namespace _project.Scripts
     public class InputManager : MonoBehaviour
     {
         public static event Action<InputAction.CallbackContext> RightArrowPressed; 
+        public static event Action<InputAction.CallbackContext> FirstLeftButonPressed; 
         public static event Action<InputAction.CallbackContext> LeftArrowPressed; 
         public static event Action<InputAction.CallbackContext> LeftButtonPressed; 
         public static event Action<InputAction.CallbackContext> SpacePressed; 
