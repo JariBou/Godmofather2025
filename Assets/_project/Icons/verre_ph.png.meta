@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 6d788b91733883a46a60c7e4ab8de147
+guid: b6e2ab6ea9fddea429af85d2fb1bb476
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7315994747443350257
-    second: feu_01_0
-  - first:
-      213: 3928546581861992299
-    second: feu_01_1
+      213: -2825985454709626678
+    second: verre_ph_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: feu_01_0
+      name: verre_ph_0
       rect:
         serializedVersion: 2
-        x: 1235
-        y: 58
-        width: 4345
-        height: 4872
+        x: 322
+        y: 68
+        width: 1519
+        height: 2243
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fa0cf30672a78560800000000000000
-      internalID: 7315994747443350257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: feu_01_1
-      rect:
-        serializedVersion: 2
-        x: 5123
-        y: 4917
-        width: 28
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b6785774d40058630800000000000000
-      internalID: 3928546581861992299
+      spriteID: ac8ac9f933518c8d0800000000000000
+      internalID: -2825985454709626678
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      feu_01_0: 7315994747443350257
-      feu_01_1: 3928546581861992299
+      verre_ph_0: -2825985454709626678
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
