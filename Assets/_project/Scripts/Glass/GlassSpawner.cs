@@ -6,6 +6,7 @@ public class GlassSpawner : MonoBehaviour
     [SerializeField] private float _spawnCooldown;
     private float _timer;
     [SerializeField] private Vector3 _spawnPosition;
+    [SerializeField] private Vector3 _spawnPosition2;
 
     private void Start()
     {
@@ -25,13 +26,17 @@ public class GlassSpawner : MonoBehaviour
     void SpawnGlass()
     {
         GameObject newGlass = Instantiate(_glass);
+        GameObject newGlass2 = Instantiate(_glass);
         newGlass.transform.position = _spawnPosition;
+        newGlass2.transform.position = _spawnPosition2;
         newGlass.SetActive(true);
+        newGlass2.SetActive(true);
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_spawnPosition, 1);
+        Gizmos.DrawWireSphere(_spawnPosition2, 1);
     }
 }
