@@ -57,6 +57,7 @@ public class InputForAction : MonoBehaviour
         {
             Debug.Log("Right Arrow Pressed on " + currentGlass.name);
             Changepose();
+            AudioManager.Instance.Play("test");
 
      
         }
