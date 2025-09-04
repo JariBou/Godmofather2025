@@ -2338,7 +2338,9 @@ MonoBehaviour:
   _glassPrefab: {fileID: 1341008521278713467, guid: 6dffb26607f961541a2931abcb51999a, type: 3}
   _spawners:
   - _spawnPoint: {fileID: 1158770478}
+    _timerStartOffset: -1.5
   - _spawnPoint: {fileID: 2047346955}
+    _timerStartOffset: -3
   _isActive: 1
   _evolveCurve:
     serializedVersion: 2
@@ -2367,6 +2369,7 @@ MonoBehaviour:
   _maxEvolveTime: 30
   _evolveMultiplier: 2
   _randomSpawnDeltaTimeMultiplier: 0.7
+  _minimumRandomSpawnDeltaTime: 0.1
   _randomSpawnDeltaTimeCurve:
     serializedVersion: 2
     m_Curve:

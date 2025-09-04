@@ -1,6 +1,7 @@
 ﻿using System;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace _project.Scripts
@@ -12,6 +13,9 @@ namespace _project.Scripts
         {
             [SerializeField]
             private Transform _spawnPoint;
+
+            [SerializeField] 
+            private float _timerStartOffset = -.5f;
             
             private float _spawnCooldown;
             private float _timer;
@@ -42,6 +46,7 @@ namespace _project.Scripts
                 _prefab = glassPrefab;
                 _spawnCooldown = spawnCooldown;
                 _randomSpawnDeltaTime = randomSpawnDeltaTime;
+                _timer = _timerStartOffset;
             }
 
             public void UpdateEvolve(float multiplierValue, float randomSpawnDeltaTime)
@@ -71,6 +76,8 @@ namespace _project.Scripts
 
         [SerializeField, Range(0.1f, 5f)] 
         private float _randomSpawnDeltaTimeMultiplier = .1f;
+        [SerializeField, Range(0.1f, 5f)] 
+        private float _minimumRandomSpawnDeltaTime = .1f;
         [SerializeField]
         private AnimationCurve _randomSpawnDeltaTimeCurve;
         [SerializeField, Range(1f, 10f)] 
@@ -91,7 +98,7 @@ namespace _project.Scripts
 
         private float GetRandomSpawnDeltaTime()
         {
-            return .1f + (1 - _randomSpawnDeltaTimeCurve.Evaluate(_evolveTimer / _maxEvolveTime))  * _randomSpawnDeltaTimeMultiplier;
+            return _minimumRandomSpawnDeltaTime + (1 - _randomSpawnDeltaTimeCurve.Evaluate(_evolveTimer / _maxEvolveTime))  * _randomSpawnDeltaTimeMultiplier;
         }
 
         private void Update()
