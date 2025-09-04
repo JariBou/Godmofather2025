@@ -68,6 +68,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "FirstRightButton",
+                    "type": "Button",
+                    "id": "bbc9eb89-9ed3-457e-b7ab-a6f91fa7e370",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondRightButton",
+                    "type": "Button",
+                    "id": "7dbfb1b0-c222-4cbd-8813-4b3e5e5d964a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ThirdRightButton",
+                    "type": "Button",
+                    "id": "eb163059-38cb-4e4b-baba-90be1b721441",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -145,6 +172,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ThirdLeftButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36ee0b5a-7ea9-4ae9-8198-cdb76670b27c",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstRightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7a22f68-aa9f-4350-89ef-bd867fcdd324",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondRightButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5b8375a-a399-4baa-a779-8b1b038cf600",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThirdRightButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
