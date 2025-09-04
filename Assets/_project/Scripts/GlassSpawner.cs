@@ -69,7 +69,7 @@ namespace _project.Scripts
         [ShowNonSerializedField]
         private float _evolveTimer;
 
-        [SerializeField, Range(0.1f, 1f)] 
+        [SerializeField, Range(0.1f, 5f)] 
         private float _randomSpawnDeltaTimeMultiplier = .1f;
         [SerializeField]
         private AnimationCurve _randomSpawnDeltaTimeCurve;
