@@ -91,7 +91,7 @@ namespace _project.Scripts
 
         private float GetRandomSpawnDeltaTime()
         {
-            return (1 - _randomSpawnDeltaTimeCurve.Evaluate(_evolveTimer / _maxEvolveTime))  * _randomSpawnDeltaTimeMultiplier;
+            return .1f + (1 - _randomSpawnDeltaTimeCurve.Evaluate(_evolveTimer / _maxEvolveTime))  * _randomSpawnDeltaTimeMultiplier;
         }
 
         private void Update()
