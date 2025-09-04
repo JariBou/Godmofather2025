@@ -3,10 +3,11 @@ using UnityEngine;
 
 namespace _project.Scripts
 {
-    public class AudioManager :MonoBehaviour
+    public class AudioManager : MonoBehaviour
     {
         public static AudioManager Instance;
         public Sound[] Sounds;
+
         private void Awake()
         {
             if (Instance == null)
@@ -28,26 +29,39 @@ namespace _project.Scripts
                 sound.source.loop = sound.loop;
             }
         }
+
         public void Play(string name)
         {
-            Sound s = System.Array.Find(Sounds, sound => sound.name == name);
+            Sound s = Array.Find(Sounds, sound => sound.name == name);
             if (s == null)
             {
                 Debug.LogWarning("Sound: " + name + " not found!");
                 return;
             }
-            s.source.Play();
+
+            //  si le son est en loop (musique par ex.), utilise Play()
+            if (s.loop)
+            {
+                if (!s.source.isPlaying)
+                    s.source.Play();
+            }
+            else
+            {
+                //  si c’est un son ponctuel (clic, bruit de verre, etc.), utilise PlayOneShot()
+                s.source.PlayOneShot(s.clip);
+            }
         }
+
         public void Stop(string name)
         {
-            Sound s = System.Array.Find(Sounds, sound => sound.name == name);
+            Sound s = Array.Find(Sounds, sound => sound.name == name);
             if (s == null)
             {
                 Debug.LogWarning("Sound: " + name + " not found!");
                 return;
             }
+
             s.source.Stop();
         }
-        
     }
 }

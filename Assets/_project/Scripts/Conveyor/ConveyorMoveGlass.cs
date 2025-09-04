@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using _project.Scripts;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ConveyorMoveGlass : MonoBehaviour
 {
@@ -7,6 +10,12 @@ public class ConveyorMoveGlass : MonoBehaviour
     [SerializeField] private float _glassPositionY;
     
     private static Queue<int> _sharedGlassesRemembered = new(10);
+
+    private void Start()
+    {
+        AudioManager.Instance.Play("conveyor belt");
+        AudioManager.Instance.Play("Ambiance grotte");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
