@@ -127,6 +127,60 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstLeftButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6974619-ec25-4c5a-a96d-1c5e8cb037ee"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondLeftButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""488b8f16-8596-4a96-9baf-4e4ae4e55faa"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdLeftButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f14ea20-b57c-4ffd-b69e-06c11952ecf8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirstRightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""bbc9eb89-9ed3-457e-b7ab-a6f91fa7e370"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondRightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""7dbfb1b0-c222-4cbd-8813-4b3e5e5d964a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ThirdRightButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb163059-38cb-4e4b-baba-90be1b721441"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -173,6 +227,72 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
                     ""action"": ""Space"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb5b088a-af84-4c7a-8e52-3ce03ea70cc7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstLeftButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e6880df-e89c-4a89-a72c-68570bee6847"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondLeftButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e212c208-4ff9-4b86-bf1b-27738a16844f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdLeftButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36ee0b5a-7ea9-4ae9-8198-cdb76670b27c"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7a22f68-aa9f-4350-89ef-bd867fcdd324"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5b8375a-a399-4baa-a779-8b1b038cf600"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ThirdRightButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +305,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         m_Default_LeftArrow = m_Default.FindAction("LeftArrow", throwIfNotFound: true);
         m_Default_RightArrow = m_Default.FindAction("RightArrow", throwIfNotFound: true);
         m_Default_Space = m_Default.FindAction("Space", throwIfNotFound: true);
+        m_Default_FirstLeftButton = m_Default.FindAction("FirstLeftButton", throwIfNotFound: true);
+        m_Default_SecondLeftButton = m_Default.FindAction("SecondLeftButton", throwIfNotFound: true);
+        m_Default_ThirdLeftButton = m_Default.FindAction("ThirdLeftButton", throwIfNotFound: true);
+        m_Default_FirstRightButton = m_Default.FindAction("FirstRightButton", throwIfNotFound: true);
+        m_Default_SecondRightButton = m_Default.FindAction("SecondRightButton", throwIfNotFound: true);
+        m_Default_ThirdRightButton = m_Default.FindAction("ThirdRightButton", throwIfNotFound: true);
     }
 
     ~@IA_Player()
@@ -269,6 +395,12 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_LeftArrow;
     private readonly InputAction m_Default_RightArrow;
     private readonly InputAction m_Default_Space;
+    private readonly InputAction m_Default_FirstLeftButton;
+    private readonly InputAction m_Default_SecondLeftButton;
+    private readonly InputAction m_Default_ThirdLeftButton;
+    private readonly InputAction m_Default_FirstRightButton;
+    private readonly InputAction m_Default_SecondRightButton;
+    private readonly InputAction m_Default_ThirdRightButton;
     /// <summary>
     /// Provides access to input actions defined in input action map "Default".
     /// </summary>
@@ -296,6 +428,30 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Default/Space".
         /// </summary>
         public InputAction @Space => m_Wrapper.m_Default_Space;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/FirstLeftButton".
+        /// </summary>
+        public InputAction @FirstLeftButton => m_Wrapper.m_Default_FirstLeftButton;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/SecondLeftButton".
+        /// </summary>
+        public InputAction @SecondLeftButton => m_Wrapper.m_Default_SecondLeftButton;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/ThirdLeftButton".
+        /// </summary>
+        public InputAction @ThirdLeftButton => m_Wrapper.m_Default_ThirdLeftButton;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/FirstRightButton".
+        /// </summary>
+        public InputAction @FirstRightButton => m_Wrapper.m_Default_FirstRightButton;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/SecondRightButton".
+        /// </summary>
+        public InputAction @SecondRightButton => m_Wrapper.m_Default_SecondRightButton;
+        /// <summary>
+        /// Provides access to the underlying input action "Default/ThirdRightButton".
+        /// </summary>
+        public InputAction @ThirdRightButton => m_Wrapper.m_Default_ThirdRightButton;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -334,6 +490,24 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Space.started += instance.OnSpace;
             @Space.performed += instance.OnSpace;
             @Space.canceled += instance.OnSpace;
+            @FirstLeftButton.started += instance.OnFirstLeftButton;
+            @FirstLeftButton.performed += instance.OnFirstLeftButton;
+            @FirstLeftButton.canceled += instance.OnFirstLeftButton;
+            @SecondLeftButton.started += instance.OnSecondLeftButton;
+            @SecondLeftButton.performed += instance.OnSecondLeftButton;
+            @SecondLeftButton.canceled += instance.OnSecondLeftButton;
+            @ThirdLeftButton.started += instance.OnThirdLeftButton;
+            @ThirdLeftButton.performed += instance.OnThirdLeftButton;
+            @ThirdLeftButton.canceled += instance.OnThirdLeftButton;
+            @FirstRightButton.started += instance.OnFirstRightButton;
+            @FirstRightButton.performed += instance.OnFirstRightButton;
+            @FirstRightButton.canceled += instance.OnFirstRightButton;
+            @SecondRightButton.started += instance.OnSecondRightButton;
+            @SecondRightButton.performed += instance.OnSecondRightButton;
+            @SecondRightButton.canceled += instance.OnSecondRightButton;
+            @ThirdRightButton.started += instance.OnThirdRightButton;
+            @ThirdRightButton.performed += instance.OnThirdRightButton;
+            @ThirdRightButton.canceled += instance.OnThirdRightButton;
         }
 
         /// <summary>
@@ -357,6 +531,24 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
             @Space.started -= instance.OnSpace;
             @Space.performed -= instance.OnSpace;
             @Space.canceled -= instance.OnSpace;
+            @FirstLeftButton.started -= instance.OnFirstLeftButton;
+            @FirstLeftButton.performed -= instance.OnFirstLeftButton;
+            @FirstLeftButton.canceled -= instance.OnFirstLeftButton;
+            @SecondLeftButton.started -= instance.OnSecondLeftButton;
+            @SecondLeftButton.performed -= instance.OnSecondLeftButton;
+            @SecondLeftButton.canceled -= instance.OnSecondLeftButton;
+            @ThirdLeftButton.started -= instance.OnThirdLeftButton;
+            @ThirdLeftButton.performed -= instance.OnThirdLeftButton;
+            @ThirdLeftButton.canceled -= instance.OnThirdLeftButton;
+            @FirstRightButton.started -= instance.OnFirstRightButton;
+            @FirstRightButton.performed -= instance.OnFirstRightButton;
+            @FirstRightButton.canceled -= instance.OnFirstRightButton;
+            @SecondRightButton.started -= instance.OnSecondRightButton;
+            @SecondRightButton.performed -= instance.OnSecondRightButton;
+            @SecondRightButton.canceled -= instance.OnSecondRightButton;
+            @ThirdRightButton.started -= instance.OnThirdRightButton;
+            @ThirdRightButton.performed -= instance.OnThirdRightButton;
+            @ThirdRightButton.canceled -= instance.OnThirdRightButton;
         }
 
         /// <summary>
@@ -425,5 +617,47 @@ public partial class @IA_Player: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSpace(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FirstLeftButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFirstLeftButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SecondLeftButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSecondLeftButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ThirdLeftButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnThirdLeftButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "FirstRightButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnFirstRightButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SecondRightButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSecondRightButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ThirdRightButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnThirdRightButton(InputAction.CallbackContext context);
     }
 }
