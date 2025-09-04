@@ -14,7 +14,9 @@ namespace _project.Scripts.Enigmas.PhEnigma
         private Vector3 _targetActivePosition;
         [SerializeField]
         private Vector3 _targetActiveRotation;
-        private Transform _startPosition;
+        
+        private Vector3 _startPosition;
+        private Vector3 _startRotation;
 
         [SerializeField, Foldout("Debug display")] 
         private bool _showTargetDisplay;
@@ -35,11 +37,17 @@ namespace _project.Scripts.Enigmas.PhEnigma
             Destroy(_activeDisplay);
         }
 
+        private void Start()
+        {
+            _startPosition = transform.position;
+            _startRotation = transform.eulerAngles;
+        }
+
         private void OnMouseDown()
         {
             _isActive = !_isActive;
-            transform.position = _isActive ? transform.InverseTransformPoint(_targetActivePosition) : _startPosition.position;
-            transform.rotation = _isActive ? Quaternion.Euler(_targetActiveRotation) : _startPosition.rotation;
+            transform.position = _isActive ? transform.InverseTransformPoint(_targetActivePosition) : _startPosition;
+            transform.rotation = _isActive ? Quaternion.Euler(_targetActiveRotation) : Quaternion.Euler(_startRotation);
         }
 
         private void OnEnable()
