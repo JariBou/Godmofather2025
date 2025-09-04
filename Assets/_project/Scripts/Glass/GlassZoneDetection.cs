@@ -25,7 +25,7 @@ namespace _project.Scripts.Glass
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Glass") && collision.gameObject.GetComponent<Glass>() == _glassesEntered.Peek())
+            if (collision.CompareTag("Glass") && _glassesEntered.TryPeek(out Glass? glass) && collision.gameObject.GetComponent<Glass>() == glass)
             {
                 _glassesEntered.Dequeue();
                 Debug.Log("Left the zone");
@@ -41,10 +41,10 @@ namespace _project.Scripts.Glass
             if (peek.GetGlassType() == Glass.Type.RED)
             {
                 // Move Glass
-                // peek.GetComponent<Glass>().Goto();
-                peek.transform.position = _targets[0].transform.position;
-                Destroy(peek.gameObject, .3f);
-                // _glassesEntered.Dequeue();
+                peek.MoveTo(_targets[0].transform.position, .75f);
+                // peek.transform.position = _targets[0].transform.position;
+                // Destroy(peek.gameObject, .3f);
+                _glassesEntered.Dequeue();
             }
         }
 
@@ -57,10 +57,10 @@ namespace _project.Scripts.Glass
             if (peek.GetGlassType() == Glass.Type.GREEN)
             {
                 // Move Glass
-                // peek.GetComponent<Glass>().Goto();
-                peek.transform.position = _targets[1].transform.position;
-                Destroy(peek.gameObject, .3f);
-                // _glassesEntered.Dequeue();
+                peek.MoveTo(_targets[1].transform.position, .75f);
+                // peek.transform.position = _targets[1].transform.position;
+                // Destroy(peek.gameObject, .3f);
+                _glassesEntered.Dequeue();
             }
         }
 
@@ -73,10 +73,10 @@ namespace _project.Scripts.Glass
             if (peek.GetGlassType() == Glass.Type.BLUE)
             {
                 // Move Glass
-                // peek.GetComponent<Glass>().Goto();
-                peek.transform.position = _targets[2].transform.position;
-                Destroy(peek.gameObject, .3f);
-                // _glassesEntered.Dequeue();
+                peek.MoveTo(_targets[2].transform.position, .75f);
+                // peek.transform.position = _targets[2].transform.position;
+                // Destroy(peek.gameObject, .3f);
+                _glassesEntered.Dequeue();
             }
         }
     }

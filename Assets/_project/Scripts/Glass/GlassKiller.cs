@@ -6,7 +6,7 @@ public class GlassKiller : MonoBehaviour
     {
         if (collision.CompareTag("Glass") || collision.CompareTag("Unconveyorable"))
         {
-            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject);
         }
     }
 }
