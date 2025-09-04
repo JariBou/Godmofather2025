@@ -5,58 +5,47 @@ namespace _project.Scripts.Glass
 {
     public class GlassProperties : MonoBehaviour
     {
-        [SerializeField] private PHData _phData;
-        [SerializeField] private HeatData _heatData;
-        [SerializeField] private TrashData _trashData;
-        [SerializeField] private Color _baseColor;
-        [SerializeField] private Color _hoverColor;
-        [SerializeField] private Color _selectedColor;
+        private enum TYPE {
+            NONE,
+            RED,
+            GREEN,
+            BLUE
+        }
+        private SpriteRenderer _spriteRenderer;
 
+        [SerializeField] private TYPE _type;
 
-
-        public float GetScore()
+        private void Awake()
         {
-            return _phData.GetScore() + _heatData.GetScore() + _trashData.GetScore();
+            TryGetComponent(out _spriteRenderer);
         }
 
-        [Serializable]
-        public class PHData
+        private void Start()
         {
-            [SerializeField] private float _current; //current Ph between 0 and 14
-            public float Current
+            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, _spriteRenderer.color.a);
+            _type = (TYPE)UnityEngine.Random.Range(1, Enum.GetNames(typeof(TYPE)).Length);
+            UpdateColor();
+        }
+
+        private void UpdateColor()
+        {
+            if (_type == TYPE.RED)
             {
-                get { return _current; }
-                set { _current = Mathf.Clamp(value, 0, 14); }
+                _spriteRenderer.color = Color.red;
             }
-            public float Target = 7; //target Ph
-            public float Delta = 0.4f;//level of leniency
-            [SerializeField] private float _scoreMultiplier; //score  multiplier
-            public float ScoreMultiplier => _scoreMultiplier;
-
-            public float GetScore() => ScoreMultiplier;
-        }
-
-        [Serializable]
-        public class HeatData
-        {
-            public float Current = 0f; //current amount of purity
-            public float Target = 100f; //target amount of purity
-            public float Delta = 5f; //level of leniency
-            [SerializeField] private float _scoreMultiplier; //score  multiplier
-            public float ScoreMultiplier => _scoreMultiplier;
-
-            public float GetScore() => ScoreMultiplier;
-        }
-
-        [Serializable]
-        public class TrashData
-        {
-            public float CurrentAmount = 0f; //current amount of trash in the water
-            public float MaxAmount = 10f; //maximum amount of trash in the water
-            [SerializeField] private float _scoreMultiplier; //score  multiplier
-            public float ScoreMultiplier => _scoreMultiplier;
-
-            public float GetScore() => ScoreMultiplier;
+            else if (_type == TYPE.GREEN)
+            {
+                _spriteRenderer.color = Color.green;
+            }
+            else if (_type == TYPE.BLUE)
+            {
+                _spriteRenderer.color = Color.blue;
+            }
+            else
+            {
+                _spriteRenderer.color = Color.white;
+            }
         }
     }
+
 }
