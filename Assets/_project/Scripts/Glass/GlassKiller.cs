@@ -1,4 +1,5 @@
 using _project.Scripts;
+using _project.Scripts.Managers;
 using UnityEngine;
 
 public class GlassKiller : MonoBehaviour
@@ -10,6 +11,7 @@ public class GlassKiller : MonoBehaviour
         {
             PlayRandomGlassSound();
 
+            GameManager.RemoveLife();
             Destroy(collision.gameObject);
         }
     }
