@@ -41,7 +41,7 @@ namespace _project.Scripts.Glass
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
             
             //TODO: check if glass is goood
-            if (peek.GetGlassType() == Glass.Type.RED)
+            if (peek.GetGlassType() == Glass.Type.GREEN)
             {
                 // Move Glass
                 peek.MoveTo(_targets[0].transform.position, .75f);
@@ -66,7 +66,7 @@ namespace _project.Scripts.Glass
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
 
             //TODO: check if glass is goood
-            if (peek.GetGlassType() == Glass.Type.GREEN)
+            if (peek.GetGlassType() == Glass.Type.RED)
             {
                 // Move Glass
                 peek.MoveTo(_targets[1].transform.position, .75f);
