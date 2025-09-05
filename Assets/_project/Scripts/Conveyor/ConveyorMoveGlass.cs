@@ -7,11 +7,11 @@ using Random = UnityEngine.Random;
 
 public class ConveyorMoveGlass : MonoBehaviour
 {
+    private static Queue<int> _sharedGlassesRemembered = new(10);
+    
     [SerializeField] private int _conveyorSpeedDirection = 1;
     [SerializeField] private float _glassPositionY;
     private float _conveyorSpeed;
-    
-    private static Queue<int> _sharedGlassesRemembered = new(10);
 
     [SerializeField] 
     private List<ConveyorWheel> _conveyorWheels;

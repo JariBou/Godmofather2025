@@ -59,15 +59,12 @@ namespace _project.Scripts.Glass
             {
                 case Type.RED:
                     _spriteRenderer.sprite = _data.RedSprite;
-                    _spriteRenderer.color = Color.red;
                     break;
                 case Type.GREEN:
                     _spriteRenderer.sprite = _data.GreenSprite;
-                    _spriteRenderer.color = Color.green;
                     break;
                 case Type.BLUE:
                     _spriteRenderer.sprite = _data.BlueSprite;
-                    _spriteRenderer.color = Color.blue;
                     break;
                 case Type.NONE:
                 default:

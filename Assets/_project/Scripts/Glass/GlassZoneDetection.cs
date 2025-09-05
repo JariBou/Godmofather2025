@@ -9,15 +9,17 @@ namespace _project.Scripts.Glass
 {
     public class GlassZoneDetection : MonoBehaviour
     {
+        private static Queue<int> _sharedGlassesRemembered = new(10);
+        
         private Queue<Glass> _glassesEntered = new();
         
         [SerializeField, InfoBox("In order of left part: left to right")]
         private List<Transform> _targets = new();
-        
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Glass"))
+            if (collision.CompareTag("Glass") && !DoesRememberGlass(collision.gameObject))
             {
                 _glassesEntered.Enqueue(collision.gameObject.GetComponent<Glass>());
                 Debug.Log("In the zone with " + collision.gameObject.name);
@@ -26,9 +28,10 @@ namespace _project.Scripts.Glass
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Glass") && _glassesEntered.TryPeek(out Glass? glass) && collision.gameObject.GetComponent<Glass>() == glass)
+            if (collision.CompareTag("Glass") && _glassesEntered.TryPeek(out Glass? glass) && collision.gameObject.GetComponent<Glass>() == glass && !DoesRememberGlass(collision.gameObject))
             {
                 _glassesEntered.Dequeue();
+                RememberGlass(glass.gameObject);
                 Debug.Log("Left the zone");
             }
         }
@@ -104,5 +107,18 @@ namespace _project.Scripts.Glass
                 _glassesEntered.Dequeue();
             }
         }
+        
+        
+        private void RememberGlass(GameObject glass)
+        {
+            if (_sharedGlassesRemembered.Count > 10) _sharedGlassesRemembered.Dequeue();
+            _sharedGlassesRemembered.Enqueue(glass.GetInstanceID());
+        }
+
+        private bool DoesRememberGlass(GameObject glass)
+        {
+            return _sharedGlassesRemembered.Contains(glass.GetInstanceID());
+        }
+
     }
 }
