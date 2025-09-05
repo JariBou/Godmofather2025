@@ -19,6 +19,7 @@ public class ConveyorMoveGlass : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.Play("conveyor belt");
+        AudioManager.Instance.Play("musique");
         AudioManager.Instance.Play("Ambiance grotte");
     }
 
