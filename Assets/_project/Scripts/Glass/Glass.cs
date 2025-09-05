@@ -78,12 +78,13 @@ namespace _project.Scripts.Glass
             _shouldMove = true;
             _targetPosition = transformPosition;
             _speed = speed;
-                _startPosition = transform.position;
+            _startPosition = transform.position;
         }
 
         public void Disable()
         {
-            _disabledSpriteRenderer.enabled = true;
+            if (_disabledSpriteRenderer != null)
+                _disabledSpriteRenderer.enabled = true;
         }
     }
 

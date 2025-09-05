@@ -13,8 +13,8 @@ namespace _project.Scripts.Managers
         [SerializeField, Range(0f, 10000f)] 
         private float _gameDuration = 3;
 
-        [SerializeField] 
-        private int _lives = 3;
+        //[SerializeField] 
+        //private int _lives = 3;
         
         private float _timer;
 
