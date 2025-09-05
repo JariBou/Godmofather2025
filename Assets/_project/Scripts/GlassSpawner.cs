@@ -83,6 +83,13 @@ namespace _project.Scripts
         private AnimationCurve _randomSpawnDeltaTimeCurve;
         [SerializeField, Range(1f, 10f)] 
         private float _spawnCooldown = 1f;
+        
+        [SerializeField]
+        private ConveyorMoveGlass[] _conveyors = new ConveyorMoveGlass[2];
+        [SerializeField]
+        private AnimationCurve _evolveConveyorSpeedCurve;
+        [SerializeField]
+        private Vector2 _evolveConveyorSpeedRange = new(2f, 4f);
 
         public void Activate()
         {
@@ -118,10 +125,17 @@ namespace _project.Scripts
             
             _evolveTimer += Time.fixedDeltaTime;
             float multiplierValue = _evolveCurve.Evaluate(_evolveTimer / _maxEvolveTime) * Math.Max(_evolveMultiplier - 1f, 1f);
+            float conveyorSpeedT = _evolveConveyorSpeedCurve.Evaluate(_evolveTimer / _maxEvolveTime) * Math.Max(_evolveMultiplier - 1f, 1f);
+            float conveyorSpeedValue = Mathf.Lerp(_evolveConveyorSpeedRange.x, _evolveConveyorSpeedRange.y, conveyorSpeedT);
             
             foreach (Spawner spawner in _spawners)
             {
                 spawner.UpdateEvolve(multiplierValue, GetRandomSpawnDeltaTime());
+            }
+
+            foreach (ConveyorMoveGlass conveyor in _conveyors)
+            {
+                conveyor.SetSpeed(conveyorSpeedValue);
             }
         }
 
