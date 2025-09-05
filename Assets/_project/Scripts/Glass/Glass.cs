@@ -83,7 +83,8 @@ namespace _project.Scripts.Glass
 
         public void Disable()
         {
-            _disabledSpriteRenderer.enabled = true;
+            if (_disabledSpriteRenderer != null)
+                _disabledSpriteRenderer.enabled = true;
         }
     }
 
