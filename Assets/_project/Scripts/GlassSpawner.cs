@@ -69,7 +69,7 @@ namespace _project.Scripts
         [ShowNonSerializedField]
         private float _evolveTimer;
 
-        [SerializeField, Range(0.1f, 1f)] 
+        [SerializeField, Range(0.1f, 5f)] 
         private float _randomSpawnDeltaTimeMultiplier = .1f;
         [SerializeField]
         private AnimationCurve _randomSpawnDeltaTimeCurve;
@@ -91,7 +91,7 @@ namespace _project.Scripts
 
         private float GetRandomSpawnDeltaTime()
         {
-            return (1 - _randomSpawnDeltaTimeCurve.Evaluate(_evolveTimer / _maxEvolveTime))  * _randomSpawnDeltaTimeMultiplier;
+            return .1f + (1 - _randomSpawnDeltaTimeCurve.Evaluate(_evolveTimer / _maxEvolveTime))  * _randomSpawnDeltaTimeMultiplier;
         }
 
         private void Update()
