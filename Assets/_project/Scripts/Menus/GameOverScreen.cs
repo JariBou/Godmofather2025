@@ -17,6 +17,8 @@ namespace _project.Scripts.Menus
         private Image _panelBg;
         [SerializeField]
         private TMP_Text _stateText;
+        [SerializeField]
+        private TMP_Text _scoreText;
 
         [SerializeField] 
         private Color _winColor = new(94, 210, 90, 255);
@@ -49,9 +51,11 @@ namespace _project.Scripts.Menus
         private IEnumerator GameOverDelayed(bool won)
         {
             yield return new WaitForSeconds(_endDelayTimer);
+            Cursor.visible = true;
             Time.timeScale = 0;
             _gameOverScreen.SetActive(true);
             _stateText.text = won ? "Game Over" : "Game Over";
+            _scoreText.text = $"{GameManager.Instance.Scores} Points";
             _panelBg.color = won ? _winColor : _looseColor;
         }
     }

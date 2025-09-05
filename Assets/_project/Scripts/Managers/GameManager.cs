@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace _project.Scripts.Managers
 {
@@ -52,7 +53,6 @@ namespace _project.Scripts.Managers
         {
             Instance.Scores += score;
         }
-        
 
         public static void RemoveLife()
         {
