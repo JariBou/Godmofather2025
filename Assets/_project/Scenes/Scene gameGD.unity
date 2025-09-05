@@ -2643,7 +2643,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: button select
     clip: {fileID: 8300000, guid: 780782b72142fef4e9061d6acb3d8a2f, type: 3}
-    volume: 1
+    volume: 0.07
     pitch: 0
     loop: 0
     source: {fileID: 0}
@@ -6467,36 +6467,36 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.5333376
-      value: 0.33695504
-      inSlope: 1.705689
-      outSlope: 1.705689
+      time: 0.37099504
+      value: 0.71024644
+      inSlope: 0.012936641
+      outSlope: 0.012936641
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.1970316
     - serializedVersion: 3
-      time: 0.6963476
-      value: 0.9968831
-      inSlope: 1.3944061
-      outSlope: 0.010820052
+      time: 0.8120318
+      value: 0.99327636
+      inSlope: 2.0352566
+      outSlope: 0.03586395
       tangentMode: 1
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.19261235
+      inWeight: 0.20630541
+      outWeight: 0.24950077
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.02234579
-      outSlope: 0.02234579
+      inSlope: 0.11560149
+      outSlope: 0.11560149
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.18183522
+      inWeight: 0.53137535
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxEvolveTime: 30
+  _maxEvolveTime: 90
   _evolveMultiplier: 2
   _randomSpawnDeltaTimeMultiplier: 0.7
   _minimumRandomSpawnDeltaTime: 0.1
@@ -6552,7 +6552,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _evolveConveyorSpeedRange: {x: 2, y: 4}
+  _evolveConveyorSpeedRange: {x: 2, y: 7}
 --- !u!4 &1799281517
 Transform:
   m_ObjectHideFlags: 0
@@ -7917,7 +7917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023837123250096979, guid: 1ac249f11f090a144a2e2583cfc24ae0, type: 3}
       propertyPath: _gameDuration
-      value: 120
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7214895308582495472, guid: 1ac249f11f090a144a2e2583cfc24ae0, type: 3}
       propertyPath: m_Pivot.x
