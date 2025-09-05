@@ -51,7 +51,7 @@ namespace _project.Scripts.Menus
             yield return new WaitForSeconds(_endDelayTimer);
             Time.timeScale = 0;
             _gameOverScreen.SetActive(true);
-            _stateText.text = won ? "GG!!" : "Git Gud :p";
+            _stateText.text = won ? "Game Over" : "Game Over";
             _panelBg.color = won ? _winColor : _looseColor;
         }
     }

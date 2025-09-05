@@ -11,7 +11,7 @@ namespace _project.Scripts.Managers
 
         public bool IsGameRunning { get; private set; } = true;
         [SerializeField, Range(0f, 10000f)] 
-        private float _gameDuration = 360;
+        private float _gameDuration = 3;
 
         [SerializeField] 
         private int _lives = 3;
