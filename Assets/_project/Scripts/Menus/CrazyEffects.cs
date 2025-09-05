@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class CrazyEffects : MonoBehaviour
 {
@@ -9,7 +8,8 @@ public class CrazyEffects : MonoBehaviour
     [SerializeField] private AnimationCurve _curve;
     [SerializeField] private TextMeshProUGUI _tmp;
     private float _timer;
-    private int _hsvTest;
+    [SerializeField] private float _colorChangeSpeed = 1f;
+    private float _hsvTest;
     private bool _hasLooped = false;
 
     private void Start()
@@ -42,7 +42,7 @@ public class CrazyEffects : MonoBehaviour
 
         _tmp.color = Color.HSVToRGB((float)_hsvTest/360,1,1);
         if (_hsvTest < 360)
-            _hsvTest += 1;
+            _hsvTest += 1 * _colorChangeSpeed;
         else
             _hsvTest = 0;
     }
