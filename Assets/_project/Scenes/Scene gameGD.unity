@@ -2861,6 +2861,12 @@ MonoBehaviour:
     pitch: 0
     loop: 0
     source: {fileID: 0}
+  - name: musique
+    clip: {fileID: 8300000, guid: 079e23a5148dca541aaf5ea568a8baf5, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 1
+    source: {fileID: 0}
 --- !u!4 &659801795
 Transform:
   m_ObjectHideFlags: 0
