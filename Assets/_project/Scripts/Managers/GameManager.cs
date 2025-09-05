@@ -12,7 +12,6 @@ namespace _project.Scripts.Managers
         public static event Action<bool> GameEnded;
 
         public int Scores;
-        
 
         public bool IsGameRunning { get; private set; } = true;
         [SerializeField, Range(0f, 10000f)] 
@@ -26,7 +25,13 @@ namespace _project.Scripts.Managers
 
         private void Awake()
         {
-            Instance ??= this;
+            if (Instance != null)
+            {
+                Destroy(Instance.gameObject);
+            }
+            Instance = this;
+            Instance.Scores = 0;
+            Instance.IsGameRunning = true;
         }
 
         private void Update()
