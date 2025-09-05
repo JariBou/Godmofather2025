@@ -43,16 +43,17 @@ namespace _project.Scripts.Glass
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.RED)
             {
-
-
-
-
                 // Move Glass
                 peek.MoveTo(_targets[0].transform.position, .75f);
                 // peek.transform.position = _targets[0].transform.position;
                 // Destroy(peek.gameObject, .3f);
                 AudioManager.Instance.Play("eau qui bout");
                 AudioManager.Instance.Play("feu,gaz");
+                _glassesEntered.Dequeue();
+            }
+            else
+            {
+                peek.Disable();
                 _glassesEntered.Dequeue();
             }
         }
@@ -67,7 +68,6 @@ namespace _project.Scripts.Glass
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.GREEN)
             {
-
                 // Move Glass
                 peek.MoveTo(_targets[1].transform.position, .75f);
                 // peek.transform.position = _targets[1].transform.position;
@@ -75,11 +75,15 @@ namespace _project.Scripts.Glass
                 AudioManager.Instance.Play("feuille");
                 _glassesEntered.Dequeue();
             }
+            else
+            {
+                peek.Disable();
+                _glassesEntered.Dequeue();
+            }
         }
 
         public void OnThirdAction(InputAction.CallbackContext obj)
         {
-
             if (!obj.performed) return;
             AudioManager.Instance.Play("button select");
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
@@ -93,6 +97,11 @@ namespace _project.Scripts.Glass
                 // peek.transform.position = _targets[2].transform.position;
                 // Destroy(peek.gameObject, .3f);
                 AudioManager.Instance.Play("goutte d_eau");
+                _glassesEntered.Dequeue();
+            }
+            else
+            {
+                peek.Disable();
                 _glassesEntered.Dequeue();
             }
         }

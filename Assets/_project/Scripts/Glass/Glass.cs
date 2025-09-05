@@ -14,6 +14,8 @@ namespace _project.Scripts.Glass
             BLUE
         }
         private SpriteRenderer _spriteRenderer;
+        [SerializeField]
+        private SpriteRenderer _disabledSpriteRenderer;
 
         [SerializeField] private Type _type;
         [SerializeField] private GlassData _data;
@@ -29,6 +31,7 @@ namespace _project.Scripts.Glass
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _disabledSpriteRenderer.enabled = false;
         }
 
         private void Start()
@@ -79,6 +82,11 @@ namespace _project.Scripts.Glass
             _targetPosition = transformPosition;
             _speed = speed;
             _startPosition = transform.position;
+        }
+
+        public void Disable()
+        {
+            _disabledSpriteRenderer.enabled = true;
         }
     }
 
