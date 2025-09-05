@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: fe8eaf393c285b74fa0fe4d29501bd05
+guid: 7e5fad2dc55661a439878edff00d1205
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7936930090751771414
-    second: feu_02_0
+      213: -8897694428715731547
+    second: 1er plan roches_0
   - first:
-      213: 4657577897079547623
-    second: feu_02_1
+      213: -4245364246168982565
+    second: 1er plan roches_1
   - first:
-      213: -5010117792466697986
-    second: feu_02_2
-  - first:
-      213: -5024647983114415657
-    second: feu_02_3
-  - first:
-      213: 6043587897112244798
-    second: feu_02_4
-  - first:
-      213: -1426249680224181111
-    second: feu_02_5
+      213: -2013187974776966787
+    second: 1er plan roches_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: feu_02_0
+      name: 1er plan roches_0
       rect:
         serializedVersion: 2
-        x: 1235
-        y: 58
-        width: 4345
-        height: 4844
+        x: 0
+        y: 0
+        width: 965
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6134e5aadd3a52e60800000000000000
-      internalID: 7936930090751771414
+      spriteID: 5a53d602f0a058480800000000000000
+      internalID: -8897694428715731547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: feu_02_1
+      name: 1er plan roches_1
       rect:
         serializedVersion: 2
-        x: 5108
-        y: 4885
+        x: 1045
+        y: 981
         width: 10
-        height: 9
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e62325ab6a03a040800000000000000
-      internalID: 4657577897079547623
+      spriteID: bdb24f406bf6515c0800000000000000
+      internalID: -4245364246168982565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: feu_02_2
+      name: 1er plan roches_2
       rect:
         serializedVersion: 2
-        x: 5117
-        y: 4885
-        width: 17
-        height: 10
+        x: 1297
+        y: 0
+        width: 623
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,74 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef08829996c787ab0800000000000000
-      internalID: -5010117792466697986
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: feu_02_3
-      rect:
-        serializedVersion: 2
-        x: 5148
-        y: 4892
-        width: 13
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d11515f74dd44ab0800000000000000
-      internalID: -5024647983114415657
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: feu_02_4
-      rect:
-        serializedVersion: 2
-        x: 5154
-        y: 4890
-        width: 10
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e32b9301c232fd350800000000000000
-      internalID: 6043587897112244798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: feu_02_5
-      rect:
-        serializedVersion: 2
-        x: 5163
-        y: 4892
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9842931f871f43ce0800000000000000
-      internalID: -1426249680224181111
+      spriteID: d71b4590438bf04e0800000000000000
+      internalID: -2013187974776966787
       vertices: []
       indices: 
       edges: []
@@ -260,12 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      feu_02_0: 7936930090751771414
-      feu_02_1: 4657577897079547623
-      feu_02_2: -5010117792466697986
-      feu_02_3: -5024647983114415657
-      feu_02_4: 6043587897112244798
-      feu_02_5: -1426249680224181111
+      1er plan roches_0: -8897694428715731547
+      1er plan roches_1: -4245364246168982565
+      1er plan roches_2: -2013187974776966787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
