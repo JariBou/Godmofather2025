@@ -9,6 +9,8 @@ namespace _project.Scripts.Managers
         public static GameManager Instance { get; private set; }
         
         public static event Action<bool> GameEnded;
+
+        public int Scores;
         
 
         public bool IsGameRunning { get; private set; } = true;
@@ -46,6 +48,11 @@ namespace _project.Scripts.Managers
             IsGameRunning = false;
             GameEnded?.Invoke(won);
         }
+        public static void AddScore(int score)
+        {
+            Instance.Scores += score;
+        }
+        
 
         public static void RemoveLife()
         {
