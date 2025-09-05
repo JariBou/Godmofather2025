@@ -27,12 +27,14 @@ public class PauseMenu : MonoBehaviour
    public void EnablePauseMenu()
     {
         Time.timeScale = 0f;
+        Cursor.visible = true;
         _pauseMenu.SetActive(true);
     }
 
     public void DisablePauseMenu()
     {
         Time.timeScale = 1f;
+        Cursor.visible = false;
         _pauseMenu.SetActive(false);
     }
 }

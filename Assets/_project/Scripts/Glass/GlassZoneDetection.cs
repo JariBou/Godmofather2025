@@ -1,4 +1,5 @@
 #nullable enable
+using System;
 using System.Collections.Generic;
 using _project.Scripts.Managers;
 using NaughtyAttributes;
@@ -23,6 +24,7 @@ namespace _project.Scripts.Glass
             {
                 _glassesEntered.Enqueue(collision.gameObject.GetComponent<Glass>());
                 Debug.Log("In the zone with " + collision.gameObject.name);
+                
             }
         }
 
@@ -47,7 +49,19 @@ namespace _project.Scripts.Glass
             if (peek.GetGlassType() == Glass.Type.GREEN)
             {
                 // Move Glass
-                peek.MoveTo(_targets[0].transform.position, .75f);
+                try
+                {
+                    peek.MoveTo(_targets[0].transform.position, .75f);
+                    AudioManager.Instance.Play("eau qui bout");
+                    AudioManager.Instance.Play("feu,gaz");
+                    //increment score
+                    GameManager.AddScore(1);
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
+
                 // peek.transform.position = _targets[0].transform.position;
                 // Destroy(peek.gameObject, .3f);
                 AudioManager.Instance.Play("eau qui bout");
@@ -56,7 +70,14 @@ namespace _project.Scripts.Glass
             }
             else
             {
-                peek.Disable();
+                try
+                {
+                    peek.Disable();
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
                 _glassesEntered.Dequeue();
             }
         }
@@ -72,15 +93,31 @@ namespace _project.Scripts.Glass
             if (peek.GetGlassType() == Glass.Type.RED)
             {
                 // Move Glass
-                peek.MoveTo(_targets[1].transform.position, .75f);
-                // peek.transform.position = _targets[1].transform.position;
-                // Destroy(peek.gameObject, .3f);
-                AudioManager.Instance.Play("feuille");
+                try
+                {
+                    peek.MoveTo(_targets[1].transform.position, .75f);
+                    // peek.transform.position = _targets[1].transform.position;
+                    // Destroy(peek.gameObject, .3f);
+                    AudioManager.Instance.Play("feuille");
+                    GameManager.AddScore(1);
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
+
                 _glassesEntered.Dequeue();
             }
             else
             {
-                peek.Disable();
+                try
+                {
+                    peek.Disable();
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
                 _glassesEntered.Dequeue();
             }
         }
@@ -95,15 +132,32 @@ namespace _project.Scripts.Glass
             if (peek.GetGlassType() == Glass.Type.BLUE)
             {
                 // Move Glass
-                peek.MoveTo(_targets[2].transform.position, .75f);
-                // peek.transform.position = _targets[2].transform.position;
-                // Destroy(peek.gameObject, .3f);
-                AudioManager.Instance.Play("goutte d_eau");
+                try
+                {
+                    peek.MoveTo(_targets[2].transform.position, .75f);
+                    // peek.transform.position = _targets[2].transform.position;
+                    // Destroy(peek.gameObject, .3f);
+                    AudioManager.Instance.Play("goutte d_eau");
+                    GameManager.AddScore(1);
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
+
                 _glassesEntered.Dequeue();
             }
             else
             {
-                peek.Disable();
+                try
+                {
+                    peek.Disable();
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
+
                 _glassesEntered.Dequeue();
             }
         }

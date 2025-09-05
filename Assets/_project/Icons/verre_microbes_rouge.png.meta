@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 5c6cf2732e77b2f44a85b8c8d25a1124
+guid: 465e9e200938c814badaff354b51d5e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7119424082258214675
-    second: filtre_0
-  - first:
-      213: 6243158373318963973
-    second: filtre_1
+      213: 1112605908273167399
+    second: verre_microbes_rouge_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 2048
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: filtre_0
+      name: verre_microbes_rouge_0
       rect:
         serializedVersion: 2
-        x: 234
-        y: 49
-        width: 1501
-        height: 2270
+        x: 513
+        y: 43
+        width: 1303
+        height: 2283
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de043ab7489b23d90800000000000000
-      internalID: -7119424082258214675
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: filtre_1
-      rect:
-        serializedVersion: 2
-        x: 1431
-        y: 206
-        width: 750
-        height: 741
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 503be2e767724a650800000000000000
-      internalID: 6243158373318963973
+      spriteID: 72c7f91cd25c07f00800000000000000
+      internalID: 1112605908273167399
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      filtre_0: -7119424082258214675
-      filtre_1: 6243158373318963973
+      verre_microbes_rouge_0: 1112605908273167399
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
