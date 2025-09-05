@@ -1,4 +1,5 @@
 using System.Collections;
+using _project.Scripts;
 using UnityEngine;
 
 class DragTransform : MonoBehaviour
@@ -13,6 +14,7 @@ class DragTransform : MonoBehaviour
     {
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         dragging = true;
+        
         
     }
 

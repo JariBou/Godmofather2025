@@ -1,4 +1,5 @@
 ﻿using System;
+using _project.Scripts.Managers;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -123,7 +124,20 @@ namespace _project.Scripts
                 spawner.UpdateEvolve(multiplierValue, GetRandomSpawnDeltaTime());
             }
         }
-    }
 
-    
+        private void OnEnable()
+        {
+            GameManager.GameEnded += OnGameEnded;
+        }
+        
+        private void OnDisable()
+        {
+            GameManager.GameEnded -= OnGameEnded;
+        }
+        
+        private void OnGameEnded(bool won)
+        {
+            _isActive = false;
+        }
+    }
 }

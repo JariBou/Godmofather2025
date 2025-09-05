@@ -1,8 +1,10 @@
 using System;
+using _project.ScripatableObjects.Scripts;
 using UnityEngine;
 
 namespace _project.Scripts.Glass
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Glass : MonoBehaviour
     {
         public enum Type {
@@ -14,39 +16,69 @@ namespace _project.Scripts.Glass
         private SpriteRenderer _spriteRenderer;
 
         [SerializeField] private Type _type;
-        
+        [SerializeField] private GlassData _data;
+        [SerializeField] private AnimationCurve _moveCurve;
+        private bool _shouldMove;
+        private Vector3 _targetPosition;
+        private Vector3 _startPosition;
+        private float _speed;
+        private float _timer;
+
         public Type GetGlassType() => _type;
 
         private void Awake()
         {
-            TryGetComponent(out _spriteRenderer);
+            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void Start()
         {
-            _spriteRenderer.color = new Color(_spriteRenderer.color.r, _spriteRenderer.color.g, _spriteRenderer.color.b, _spriteRenderer.color.a);
             _type = (Type)UnityEngine.Random.Range(1, Enum.GetNames(typeof(Type)).Length);
-            UpdateColor();
+            UpdateSprite();
         }
 
-        private void UpdateColor()
+        private void Update()
         {
-            if (_type == Type.RED)
+            if (_shouldMove)
             {
-                _spriteRenderer.color = Color.red;
+                _timer += Time.deltaTime * _speed;
+                transform.position = Vector3.Lerp(_startPosition, _targetPosition, _moveCurve.Evaluate(_timer));
+                if (_timer >= 1.2f)
+                {
+                    Destroy(gameObject);
+                }
             }
-            else if (_type == Type.GREEN)
+        }
+
+        private void UpdateSprite()
+        {
+            switch (_type)
             {
-                _spriteRenderer.color = Color.green;
+                case Type.RED:
+                    _spriteRenderer.sprite = _data.RedSprite;
+                    _spriteRenderer.color = Color.red;
+                    break;
+                case Type.GREEN:
+                    _spriteRenderer.sprite = _data.GreenSprite;
+                    _spriteRenderer.color = Color.green;
+                    break;
+                case Type.BLUE:
+                    _spriteRenderer.sprite = _data.BlueSprite;
+                    _spriteRenderer.color = Color.blue;
+                    break;
+                case Type.NONE:
+                default:
+                    _spriteRenderer.color = Color.white;
+                    break;
             }
-            else if (_type == Type.BLUE)
-            {
-                _spriteRenderer.color = Color.blue;
-            }
-            else
-            {
-                _spriteRenderer.color = Color.white;
-            }
+        }
+
+        public void MoveTo(Vector3 transformPosition, float speed)
+        {
+            _shouldMove = true;
+            _targetPosition = transformPosition;
+            _speed = speed;
+            _startPosition = transform.position;
         }
     }
 

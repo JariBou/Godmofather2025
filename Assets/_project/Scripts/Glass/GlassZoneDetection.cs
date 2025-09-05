@@ -1,5 +1,6 @@
 #nullable enable
 using System.Collections.Generic;
+using _project.Scripts.Managers;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -25,7 +26,7 @@ namespace _project.Scripts.Glass
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Glass") && collision.gameObject.GetComponent<Glass>() == _glassesEntered.Peek())
+            if (collision.CompareTag("Glass") && _glassesEntered.TryPeek(out Glass? glass) && collision.gameObject.GetComponent<Glass>() == glass)
             {
                 _glassesEntered.Dequeue();
                 Debug.Log("Left the zone");
@@ -35,48 +36,64 @@ namespace _project.Scripts.Glass
         public void OnFirstAction(InputAction.CallbackContext obj)
         {
             if (!obj.performed) return;
+            AudioManager.Instance.Play("button select");
+
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
             
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.RED)
             {
+
+
+
+
                 // Move Glass
-                // peek.GetComponent<Glass>().Goto();
-                peek.transform.position = _targets[0].transform.position;
-                Destroy(peek.gameObject, .3f);
-                // _glassesEntered.Dequeue();
+                peek.MoveTo(_targets[0].transform.position, .75f);
+                // peek.transform.position = _targets[0].transform.position;
+                // Destroy(peek.gameObject, .3f);
+                AudioManager.Instance.Play("eau qui bout");
+                AudioManager.Instance.Play("feu,gaz");
+                _glassesEntered.Dequeue();
             }
         }
 
         public void OnSecondAction(InputAction.CallbackContext obj)
         {
             if (!obj.performed) return;
+            AudioManager.Instance.Play("button select");
+
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
 
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.GREEN)
             {
+
                 // Move Glass
-                // peek.GetComponent<Glass>().Goto();
-                peek.transform.position = _targets[1].transform.position;
-                Destroy(peek.gameObject, .3f);
-                // _glassesEntered.Dequeue();
+                peek.MoveTo(_targets[1].transform.position, .75f);
+                // peek.transform.position = _targets[1].transform.position;
+                // Destroy(peek.gameObject, .3f);
+                AudioManager.Instance.Play("feuille");
+                _glassesEntered.Dequeue();
             }
         }
 
         public void OnThirdAction(InputAction.CallbackContext obj)
         {
+
             if (!obj.performed) return;
+            AudioManager.Instance.Play("button select");
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
 
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.BLUE)
             {
+
                 // Move Glass
-                // peek.GetComponent<Glass>().Goto();
-                peek.transform.position = _targets[2].transform.position;
-                Destroy(peek.gameObject, .3f);
-                // _glassesEntered.Dequeue();
+                peek.MoveTo(_targets[2].transform.position, .75f);
+                // peek.transform.position = _targets[2].transform.position;
+                // Destroy(peek.gameObject, .3f);
+                AudioManager.Instance.Play("goutte d_eau");
+                _glassesEntered.Dequeue();
             }
         }
     }

@@ -1,13 +1,26 @@
+using System;
+using System.Collections.Generic;
+using _project.Scripts;
+using _project.Scripts.Managers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ConveyorMoveGlass : MonoBehaviour
 {
     [SerializeField] private float _conveyorSpeed;
     [SerializeField] private float _glassPositionY;
+    
+    private static Queue<int> _sharedGlassesRemembered = new(10);
+
+    private void Start()
+    {
+        AudioManager.Instance.Play("conveyor belt");
+        AudioManager.Instance.Play("Ambiance grotte");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Glass") && !collision.CompareTag("Unconveyorable"))
+        if (collision.CompareTag("Glass") && !collision.CompareTag("Unconveyorable") && !DoesRememberGlass(collision.gameObject))
         {
             collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         }
@@ -15,7 +28,7 @@ public class ConveyorMoveGlass : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Glass") && !collision.CompareTag("Unconveyorable"))
+        if (collision.CompareTag("Glass") && !collision.CompareTag("Unconveyorable") && !DoesRememberGlass(collision.gameObject))
         {
             collision.transform.position = new Vector3(collision.transform.position.x + _conveyorSpeed * Time.deltaTime, _glassPositionY + transform.position.y, collision.transform.position.z);
         }
@@ -23,13 +36,25 @@ public class ConveyorMoveGlass : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Glass"))
+        if (collision.CompareTag("Glass") && !DoesRememberGlass(collision.gameObject))
         {
+            RememberGlass(collision.gameObject);
             collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             collision.isTrigger = false;
             collision.gameObject.GetComponent<Rigidbody2D>().linearVelocityX = _conveyorSpeed;
             collision.gameObject.GetComponent<Rigidbody2D>().angularVelocity = Random.Range(50 * - Mathf.Sign(_conveyorSpeed), 100 * - Mathf.Sign(_conveyorSpeed));
         }
+    }
+
+    private void RememberGlass(GameObject glass)
+    {
+        if (_sharedGlassesRemembered.Count > 10) _sharedGlassesRemembered.Dequeue();
+        _sharedGlassesRemembered.Enqueue(glass.GetInstanceID());
+    }
+
+    private bool DoesRememberGlass(GameObject glass)
+    {
+        return _sharedGlassesRemembered.Contains(glass.GetInstanceID());
     }
 
     private void OnDrawGizmosSelected()
