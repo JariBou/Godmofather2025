@@ -9,15 +9,17 @@ namespace _project.Scripts.Glass
 {
     public class GlassZoneDetection : MonoBehaviour
     {
+        private static Queue<int> _sharedGlassesRemembered = new(10);
+        
         private Queue<Glass> _glassesEntered = new();
         
         [SerializeField, InfoBox("In order of left part: left to right")]
         private List<Transform> _targets = new();
-        
+
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Glass"))
+            if (collision.CompareTag("Glass") && !DoesRememberGlass(collision.gameObject))
             {
                 _glassesEntered.Enqueue(collision.gameObject.GetComponent<Glass>());
                 Debug.Log("In the zone with " + collision.gameObject.name);
@@ -26,9 +28,10 @@ namespace _project.Scripts.Glass
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.CompareTag("Glass") && _glassesEntered.TryPeek(out Glass? glass) && collision.gameObject.GetComponent<Glass>() == glass)
+            if (collision.CompareTag("Glass") && _glassesEntered.TryPeek(out Glass? glass) && collision.gameObject.GetComponent<Glass>() == glass && !DoesRememberGlass(collision.gameObject))
             {
                 _glassesEntered.Dequeue();
+                RememberGlass(glass.gameObject);
                 Debug.Log("Left the zone");
             }
         }
@@ -41,18 +44,19 @@ namespace _project.Scripts.Glass
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
             
             //TODO: check if glass is goood
-            if (peek.GetGlassType() == Glass.Type.RED)
+            if (peek.GetGlassType() == Glass.Type.GREEN)
             {
-
-
-
-
                 // Move Glass
                 peek.MoveTo(_targets[0].transform.position, .75f);
                 // peek.transform.position = _targets[0].transform.position;
                 // Destroy(peek.gameObject, .3f);
                 AudioManager.Instance.Play("eau qui bout");
                 AudioManager.Instance.Play("feu,gaz");
+                _glassesEntered.Dequeue();
+            }
+            else
+            {
+                peek.Disable();
                 _glassesEntered.Dequeue();
             }
         }
@@ -65,9 +69,8 @@ namespace _project.Scripts.Glass
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
 
             //TODO: check if glass is goood
-            if (peek.GetGlassType() == Glass.Type.GREEN)
+            if (peek.GetGlassType() == Glass.Type.RED)
             {
-
                 // Move Glass
                 peek.MoveTo(_targets[1].transform.position, .75f);
                 // peek.transform.position = _targets[1].transform.position;
@@ -75,11 +78,15 @@ namespace _project.Scripts.Glass
                 AudioManager.Instance.Play("feuille");
                 _glassesEntered.Dequeue();
             }
+            else
+            {
+                peek.Disable();
+                _glassesEntered.Dequeue();
+            }
         }
 
         public void OnThirdAction(InputAction.CallbackContext obj)
         {
-
             if (!obj.performed) return;
             AudioManager.Instance.Play("button select");
             if (!_glassesEntered.TryPeek(out Glass? peek)) return;
@@ -87,7 +94,6 @@ namespace _project.Scripts.Glass
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.BLUE)
             {
-
                 // Move Glass
                 peek.MoveTo(_targets[2].transform.position, .75f);
                 // peek.transform.position = _targets[2].transform.position;
@@ -95,6 +101,24 @@ namespace _project.Scripts.Glass
                 AudioManager.Instance.Play("goutte d_eau");
                 _glassesEntered.Dequeue();
             }
+            else
+            {
+                peek.Disable();
+                _glassesEntered.Dequeue();
+            }
         }
+        
+        
+        private void RememberGlass(GameObject glass)
+        {
+            if (_sharedGlassesRemembered.Count > 10) _sharedGlassesRemembered.Dequeue();
+            _sharedGlassesRemembered.Enqueue(glass.GetInstanceID());
+        }
+
+        private bool DoesRememberGlass(GameObject glass)
+        {
+            return _sharedGlassesRemembered.Contains(glass.GetInstanceID());
+        }
+
     }
 }

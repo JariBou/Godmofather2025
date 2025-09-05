@@ -1,15 +1,20 @@
 using System.Collections.Generic;
+using _project.Scripts;
+using _project.Scripts.Conveyor;
 using _project.Scripts.Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ConveyorMoveGlass : MonoBehaviour
 {
+    private static Queue<int> _sharedGlassesRemembered = new(10);
+    
     [SerializeField] private int _conveyorSpeedDirection = 1;
     [SerializeField] private float _glassPositionY;
     private float _conveyorSpeed;
-    
-    private static Queue<int> _sharedGlassesRemembered = new(10);
+
+    [SerializeField] 
+    private List<ConveyorWheel> _conveyorWheels;
 
     private void Start()
     {
@@ -21,6 +26,10 @@ public class ConveyorMoveGlass : MonoBehaviour
     public void SetSpeed(float speed)
     {
         _conveyorSpeed = speed * _conveyorSpeedDirection;
+        foreach (ConveyorWheel conveyorWheel in _conveyorWheels)
+        {
+            conveyorWheel.UpdateSpeed(_conveyorSpeed);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

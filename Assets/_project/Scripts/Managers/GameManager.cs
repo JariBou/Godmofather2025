@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace _project.Scripts.Managers
@@ -13,9 +13,9 @@ namespace _project.Scripts.Managers
         [SerializeField, Range(0f, 10000f)] 
         private float _gameDuration = 360;
 
-        //[SerializeField] 
-        //private int _lives = 3;
-
+        [SerializeField] 
+        private int _lives = 3;
+        
         private float _timer;
 
         private void Awake()

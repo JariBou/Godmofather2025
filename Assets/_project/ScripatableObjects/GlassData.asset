@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3c0e3e6b8e468f92bef21acf77dda3, type: 3}
   m_Name: GlassData
   m_EditorClassIdentifier: 
-  RedSprite: {fileID: 21300000, guid: 37dfff459786fbf438224af0bcb153c2, type: 3}
-  GreenSprite: {fileID: 21300000, guid: 37dfff459786fbf438224af0bcb153c2, type: 3}
-  BlueSprite: {fileID: 21300000, guid: 37dfff459786fbf438224af0bcb153c2, type: 3}
+  RedSprite: {fileID: 21300000, guid: 351319562a04d3942b3f26e94dd94c15, type: 3}
+  GreenSprite: {fileID: 21300000, guid: afe0681ad29de6148bc7007647cf1cda, type: 3}
+  BlueSprite: {fileID: 21300000, guid: 6536e5e079713ed4ba70dcb34466e4a5, type: 3}
