@@ -2,7 +2,6 @@
 using _project.Scripts.Managers;
 using NaughtyAttributes;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace _project.Scripts
