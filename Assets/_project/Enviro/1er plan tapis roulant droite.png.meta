@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 37dfff459786fbf438224af0bcb153c2
+guid: 1271310592be932419f9aef4bbecc729
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2170853043869999167
-    second: verre_plein_propre_0
+      213: -6634003091420714153
+    second: 1er plan tapis roulant droite_0
+  - first:
+      213: -4216930657291255282
+    second: 1er plan tapis roulant droite_1
+  - first:
+      213: 8263747645463657378
+    second: 1er plan tapis roulant droite_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2056
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: verre_plein_propre_0
+      name: 1er plan tapis roulant droite_0
       rect:
         serializedVersion: 2
-        x: 513
-        y: 43
-        width: 1303
-        height: 2283
+        x: 343
+        y: 362
+        width: 198
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f30627b775b602e10800000000000000
-      internalID: 2170853043869999167
+      spriteID: 75b660936594fe3a0800000000000000
+      internalID: -6634003091420714153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1er plan tapis roulant droite_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 92
+        width: 71
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0243b1d8e37a75c0800000000000000
+      internalID: -4216930657291255282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1er plan tapis roulant droite_2
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 76
+        width: 813
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abf45943babea270800000000000000
+      internalID: 8263747645463657378
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      verre_plein_propre_0: 2170853043869999167
+      1er plan tapis roulant droite_0: -6634003091420714153
+      1er plan tapis roulant droite_1: -4216930657291255282
+      1er plan tapis roulant droite_2: 8263747645463657378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
