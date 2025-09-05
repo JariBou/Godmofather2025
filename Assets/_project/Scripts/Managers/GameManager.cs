@@ -41,11 +41,11 @@ namespace _project.Scripts.Managers
 
         public static void RemoveLife()
         {
-            Instance._lives--;
-            if (Instance._lives <= 0)
-            {
-                Instance.EndGame(false);
-            }
+            // Instance._lives--;
+            // if (Instance._lives <= 0)
+            // {
+            //     Instance.EndGame(false);
+            // }
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections;
 using _project.Scripts.Managers;
-using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace _project.Scripts.Enigmas.PhEnigma
 {
