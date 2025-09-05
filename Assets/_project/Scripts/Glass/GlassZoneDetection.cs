@@ -91,7 +91,6 @@ namespace _project.Scripts.Glass
             //TODO: check if glass is goood
             if (peek.GetGlassType() == Glass.Type.BLUE)
             {
-
                 // Move Glass
                 peek.MoveTo(_targets[2].transform.position, .75f);
                 // peek.transform.position = _targets[2].transform.position;

@@ -15,7 +15,7 @@ namespace _project.Scripts.Managers
 
         [SerializeField] 
         private int _lives = 3;
-
+        
         private float _timer;
 
         private void Awake()

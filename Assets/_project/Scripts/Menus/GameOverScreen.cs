@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using _project.Scripts.Managers;
 using TMPro;
 using UnityEngine;
@@ -21,6 +23,7 @@ namespace _project.Scripts.Menus
         
         [SerializeField] 
         private Color _looseColor = new(164, 96, 96, 255);
+        [SerializeField] private float _endDelayTimer = 5f;
 
         private void Awake()
         {
@@ -39,6 +42,13 @@ namespace _project.Scripts.Menus
         
         private void GameManagerOnGameEnded(bool won)
         {
+            StartCoroutine(GameOverDelayed(won));
+            
+        }
+
+        private IEnumerator GameOverDelayed(bool won)
+        {
+            yield return new WaitForSeconds(_endDelayTimer);
             Time.timeScale = 0;
             _gameOverScreen.SetActive(true);
             _stateText.text = won ? "GG!!" : "Git Gud :p";
