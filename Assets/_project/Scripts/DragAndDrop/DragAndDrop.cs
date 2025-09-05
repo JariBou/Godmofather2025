@@ -1,5 +1,3 @@
-using System.Collections;
-using _project.Scripts;
 using UnityEngine;
 
 class DragTransform : MonoBehaviour

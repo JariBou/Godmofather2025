@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using _project.Scripts;
 using _project.Scripts.Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;

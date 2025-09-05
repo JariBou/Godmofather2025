@@ -17,8 +17,8 @@ namespace _project.Scripts.Enigmas.PhEnigma
         public Vector3 GetOverPosition() => _targetOverPosition;
         public Vector3 GetOverRotation() => _targetOverRotation;
 
-        [SerializeField] 
-        private float _completionTime = 2f;
+        //[SerializeField] 
+        //private float _completionTime = 2f;
 
         [SerializeField, Foldout("Display debug")] 
         private bool _showTargetDisplay;
