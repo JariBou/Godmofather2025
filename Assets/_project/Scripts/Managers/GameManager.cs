@@ -7,11 +7,13 @@ namespace _project.Scripts.Managers
 {
     public class GameManager : MonoBehaviour
     {
+        public const int GlassScoreValue = 100;
         public static GameManager Instance { get; private set; }
         
         public static event Action<bool> GameEnded;
 
-        public int Scores;
+        public int Scores { get; private set; }
+        public int BestPossibleScore { get; private set; }
 
         public bool IsGameRunning { get; private set; } = true;
         [SerializeField, Range(0f, 10000f)] 
@@ -57,6 +59,11 @@ namespace _project.Scripts.Managers
         public static void AddScore(int score)
         {
             Instance.Scores += score;
+        }
+        
+        public static void AddBestPossibleScore(int score)
+        {
+            Instance.BestPossibleScore += score;
         }
 
         public static void RemoveLife()

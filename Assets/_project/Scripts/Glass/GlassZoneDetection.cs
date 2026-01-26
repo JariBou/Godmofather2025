@@ -55,7 +55,7 @@ namespace _project.Scripts.Glass
                     AudioManager.Instance.Play("eau qui bout");
                     AudioManager.Instance.Play("feu,gaz");
                     //increment score
-                    GameManager.AddScore(100);
+                    GameManager.AddScore(GameManager.GlassScoreValue);
                 }
                 catch (Exception e)
                 {
@@ -99,7 +99,7 @@ namespace _project.Scripts.Glass
                     // peek.transform.position = _targets[1].transform.position;
                     // Destroy(peek.gameObject, .3f);
                     AudioManager.Instance.Play("feuille");
-                    GameManager.AddScore(100);
+                    GameManager.AddScore(GameManager.GlassScoreValue);
                 }
                 catch (Exception e)
                 {
@@ -138,7 +138,7 @@ namespace _project.Scripts.Glass
                     // peek.transform.position = _targets[2].transform.position;
                     // Destroy(peek.gameObject, .3f);
                     AudioManager.Instance.Play("goutte d_eau");
-                    GameManager.AddScore(100);
+                    GameManager.AddScore(GameManager.GlassScoreValue);
                 }
                 catch (Exception e)
                 {

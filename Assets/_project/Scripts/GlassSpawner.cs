@@ -28,6 +28,7 @@ namespace _project.Scripts
             private void DoSpawn()
             {
                 Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+                GameManager.AddBestPossibleScore(GameManager.GlassScoreValue);
                 _selectedRandomSpawnDeltaTime = Random.Range(-_randomSpawnDeltaTime, _randomSpawnDeltaTime);
             }
             

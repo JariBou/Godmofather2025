@@ -6498,7 +6498,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _maxEvolveTime: 90
   _evolveMultiplier: 2
-  _randomSpawnDeltaTimeMultiplier: 0.9
+  _randomSpawnDeltaTimeMultiplier: 0.8
   _minimumRandomSpawnDeltaTime: 0.1
   _randomSpawnDeltaTimeCurve:
     serializedVersion: 2

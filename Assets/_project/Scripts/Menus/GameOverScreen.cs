@@ -55,7 +55,7 @@ namespace _project.Scripts.Menus
             Time.timeScale = 0;
             _gameOverScreen.SetActive(true);
             _stateText.text = won ? "Game Over" : "Game Over";
-            _scoreText.text = $"{GameManager.Instance.Scores} Points";
+            _scoreText.text = $"{GameManager.Instance.Scores}/{GameManager.Instance.BestPossibleScore} Points ({(float)GameManager.Instance.Scores/GameManager.Instance.BestPossibleScore * 100f}%)";
             _panelBg.color = won ? _winColor : _looseColor;
         }
     }
